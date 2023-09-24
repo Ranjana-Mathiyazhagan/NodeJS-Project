@@ -1,24 +1,44 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "./menu";
 export function Registerpage() {
 
+    const [name,setName]=useState("");
+    const [password,setPassword]=useState("");
+    const [confirm,setConfirm]=useState("");
+    const [email,setEmail]=useState("");
+    const [mobile,setMobile]=useState("");
+    const [roll,setRoll]=useState("");
+
+
+    const nameHandler=(e)=>{
+        setName(e.target.value);
+    }
+
+    const passwordHandler=(e)=>{
+        setPassword(e.target.value)
+    }
+    
+    const confirmHandler=(e)=>{
+        setConfirm(e.target.value)
+    }
+    
+    const emailHandler=(e)=>{
+        setEmail(e.target.value)
+    }
+    
+    const mobileHandler=(e)=>{
+        setMobile(e.target.value)
+    }
+    
+    const rollHandler=(e)=>{
+        e.preventDefault();
+        setRoll(e.target.value)
+    }
+
     function handlelogin(event) {
         event.preventDefault()
-        var name = document.getElementById("name").value
-        
-        var password = document.getElementById("password").value
-       
-        var confirm = document.getElementById("confirm").value
-        
-        var email = document.getElementById("email").value
-        
-        var mobile = document.getElementById("mobile").value
-        
-        var roll = document.getElementById("roll").value
-        
-
 
         var key = {
             name: name,
@@ -73,28 +93,28 @@ export function Registerpage() {
                     <table>
                         <tr>
                             <td> <label className="fw-bold text-light">Name:</label></td>
-                            <td> <input type="text" className="border-dark " placeholder="Enter your Name" id="name" ></input><br /></td>
+                            <td> <input type="text" className="border-dark " placeholder="Enter your Name" id="name" value={name} onChange={nameHandler}></input><br /></td>
                         </tr>
 
                         <tr>
                             <td> <label className="fw-bold text-light">Password:</label></td>
-                            <td> <input type="password" className="border-dark" placeholder="Enter your password" id="password"></input><br /></td>
+                            <td> <input type="password" className="border-dark" placeholder="Enter your password" id="password" value={password} onChange={passwordHandler}></input><br /></td>
                         </tr>
                         <tr>
                             <td> <label className="fw-bold text-light">Confirm Password:  </label></td>
-                            <td> <input type="password" className="border-dark" placeholder="Re-Enter Password" id="confirm"></input><br /></td>
+                            <td> <input type="password" className="border-dark" placeholder="Re-Enter Password" id="confirm" value={confirm} onChange={confirmHandler}></input><br /></td>
                         </tr>
                         <tr>
                             <td> <label className="fw-bold text-light">EmailId:</label></td>
-                            <td> <input type="email" className="border-dark" placeholder="Enter your E-mail" id="email" ></input><br /></td>
+                            <td> <input type="email" className="border-dark" placeholder="Enter your E-mail" id="email" value={email} onChange={emailHandler}></input><br /></td>
                         </tr>
                         <tr>
                             <td> <label className="fw-bold text-light">Mobile:</label></td>
-                            <td> <input type="tele" className="border-dark" placeholder="Enter your Mobile Number" id="mobile" ></input><br /></td>
+                            <td> <input type="tele" className="border-dark" placeholder="Enter your Mobile Number" id="mobile" value={mobile} onChange={mobileHandler} ></input><br /></td>
                         </tr>
                         <tr>
                             <td><label className="fw-bold text-light">Roll:</label></td>
-                            <td><select id="roll">
+                            <td><select id="roll" value={roll} onChange={rollHandler}>
                                 <option value="roll">Select Login</option>
                                 <option value="owner">Owner</option>
                                 <option value="user">User</option>
