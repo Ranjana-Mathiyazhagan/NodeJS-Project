@@ -1,5 +1,5 @@
 # Hotel Management
-## The project is about the Webside for the Restaurant, to create the restaurant user friendly to place order or see the hotel through the our website.
+## The project is about the Website for the Restaurant, to create the restaurant user friendly to place order or see the hotel through the our website.
 ### Languages Used : NodeJs, ReactJs, Mysql, CSS, HTML5, Bootstrap.
 
 # Layout1: Registration
